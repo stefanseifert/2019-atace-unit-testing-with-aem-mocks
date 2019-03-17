@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/aem-mock-sample-archetype" mode="merge"/>
+    <filter root="/content/aem-mock-sample-archetype" mode="merge"/>
+    <filter root="/content/dam/aem-mock-sample-archetype" mode="merge"/>
+</workspaceFilter>
