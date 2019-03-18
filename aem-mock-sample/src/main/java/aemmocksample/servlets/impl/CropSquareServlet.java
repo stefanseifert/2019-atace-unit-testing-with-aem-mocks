@@ -1,4 +1,4 @@
-package aemmocksample.servlets;
+package aemmocksample.servlets.impl;
 
 import java.awt.Rectangle;
 import java.io.IOException;
@@ -8,11 +8,13 @@ import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
+import org.apache.sling.servlets.annotations.SlingServletResourceTypes;
 import org.osgi.service.component.annotations.Component;
 
 import com.day.cq.dam.api.Asset;
@@ -24,12 +26,12 @@ import com.day.image.Layer;
  * and crops the referenced image to a square aspect ratio (1:1).
  * Optionally it is possible to pass in a width in pixel as request parameter.
  */
-@Component(service = Servlet.class,property = {
-   "sling.servlet.resourceTypes=aemmocksample/components/cropping",
-   "sling.servlet.selectors=cropsquare",
-   "sling.servlet.extensions=jpg",
-   "sling.servlet.methods=" + HttpConstants.METHOD_GET
-})
+@Component(service = Servlet.class)
+@SlingServletResourceTypes(
+    resourceTypes = "aemmocksample/components/cropping",
+    selectors = "cropsquare",
+    extensions = "jpg",
+    methods = HttpConstants.METHOD_GET)
 public class CropSquareServlet extends SlingSafeMethodsServlet {
   private static final long serialVersionUID = 1L;
 
@@ -54,7 +56,7 @@ public class CropSquareServlet extends SlingSafeMethodsServlet {
     layer.crop(new Rectangle(squareWidth, squareWidth));
 
     // optionally resize to given with
-    int requestedWith = request.getParameter(RP_WIDTH) != null ? Integer.valueOf(request.getParameter(RP_WIDTH)): 0;
+    int requestedWith = NumberUtils.toInt(request.getParameter(RP_WIDTH));
     if (requestedWith > 0) {
       layer.resize(requestedWith, requestedWith);
     }

@@ -1,5 +1,4 @@
-package aemmocksample.servlets;
-
+package aemmocksample.servlets.impl;
 
 import static org.junit.Assert.assertEquals;
 
