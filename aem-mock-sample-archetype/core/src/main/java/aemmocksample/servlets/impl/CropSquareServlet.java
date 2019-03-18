@@ -1,4 +1,4 @@
-package aemmocksample.servlets;
+package aemmocksample.servlets.impl;
 
 import java.awt.Rectangle;
 import java.io.IOException;
@@ -25,11 +25,11 @@ import com.day.image.Layer;
  * Optionally it is possible to pass in a width in pixel as request parameter.
  */
 @Component(service = Servlet.class,property = {
-   "sling.servlet.resourceTypes=aemmocksample/components/cropping",
-   "sling.servlet.selectors=cropsquare",
-   "sling.servlet.extensions=jpg",
-   "sling.servlet.methods=" + HttpConstants.METHOD_GET
-})
+    "sling.servlet.resourceTypes=aemmocksample/components/cropping",
+    "sling.servlet.selectors=cropsquare",
+    "sling.servlet.extensions=jpg",
+    "sling.servlet.methods=" + HttpConstants.METHOD_GET
+ })
 public class CropSquareServlet extends SlingSafeMethodsServlet {
   private static final long serialVersionUID = 1L;
 

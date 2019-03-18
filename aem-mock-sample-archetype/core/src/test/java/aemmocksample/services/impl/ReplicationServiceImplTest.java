@@ -1,7 +1,7 @@
 package aemmocksample.services.impl;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
@@ -9,25 +9,25 @@ import static org.mockito.Mockito.when;
 import javax.jcr.Session;
 
 import org.apache.sling.testing.mock.sling.ResourceResolverType;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import com.day.cq.replication.ReplicationStatus;
 import com.day.cq.replication.Replicator;
 import com.day.cq.wcm.api.Page;
 
 import aemmocksample.services.ReplicationService;
-import io.wcm.testing.mock.aem.junit5.AemContext;
-import io.wcm.testing.mock.aem.junit5.AemContextExtension;
+import io.wcm.testing.mock.aem.junit.AemContext;
 
-@ExtendWith(AemContextExtension.class)
-@ExtendWith(MockitoExtension.class)
-class ReplicationServiceImplTest {
+@RunWith(MockitoJUnitRunner.class)
+public class ReplicationServiceImplTest {
 
-  private AemContext context = new AemContext(ResourceResolverType.JCR_MOCK);
+  @Rule
+  public AemContext context = new AemContext(ResourceResolverType.JCR_MOCK);
 
   @Mock
   private Replicator replicator;
@@ -37,8 +37,8 @@ class ReplicationServiceImplTest {
   private ReplicationService underTest;
   private Page page;
 
-  @BeforeEach
-  void setUp() {
+  @Before
+  public void setUp() {
 
     // register a mockito-mock of AEM service "Replicator"
     context.registerService(Replicator.class, replicator);
@@ -55,7 +55,7 @@ class ReplicationServiceImplTest {
   }
 
   @Test
-  void testIsNotActivated() {
+  public void testIsNotActivated() {
     // simulate: last replication action was "activated"
     when(status.isActivated()).thenReturn(false);
     // assert result
@@ -63,7 +63,7 @@ class ReplicationServiceImplTest {
   }
 
   @Test
-  void testIsActivated() {
+  public void testIsActivated() {
     // simulate: last replication action was "not activated"
     when(status.isActivated()).thenReturn(true);
     // assert result
