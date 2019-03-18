@@ -1,4 +1,4 @@
-package aemmocksample.servlets;
+package aemmocksample.servlets.impl;
 
 import java.awt.Rectangle;
 import java.io.IOException;

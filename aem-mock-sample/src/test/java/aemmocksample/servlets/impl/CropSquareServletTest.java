@@ -1,4 +1,4 @@
-package aemmocksample.servlets;
+package aemmocksample.servlets.impl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
