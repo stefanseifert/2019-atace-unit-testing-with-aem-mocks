@@ -1,7 +1,7 @@
 Unit Testing with AEM Mocks
 ===========================
 
-**Ask the AEM Community Expert Session March 2019**
+[**Ask the AEM Community Expert Session March 2019**][atace-03-19-unit-testing-with-aem-mocks]
 
 
 This project contains the code samples for the AtACE Session.
@@ -22,5 +22,6 @@ Video recording:
 Slides: [Ask the AEM Community Expert March 2019: Unit Testing with AEM Mocks (Stefan Seifert)][atace-03-19-unit-testing-with-aem-mocks-slides]
 
 
+[atace-03-19-unit-testing-with-aem-mocks]: https://helpx.adobe.com/experience-manager/kt/eseminars/ask-the-expert/unit-testing-with-aem-mocks.html
 [atace-03-19-unit-testing-with-aem-mocks-video]: https://youtu.be/1xPzcukvzNk
 [atace-03-19-unit-testing-with-aem-mocks-slides]: https://wcm.io/testing/aem-mock/slides/190319_AtACE_UnitTestingWithAEMMocks.pdf
